@@ -15,6 +15,7 @@ const io = socketio(server, {
         allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
     },
 });
+
 require("dotenv").config();
 
 connectDB();

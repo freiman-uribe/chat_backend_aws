@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 
 const connect = async () => {
+    console.log("process.env.URL_CONNECT>>>", process.env.URL_CONNECT);
+    
     try {
         await mongoose.connect(process.env.URL_CONNECT, {
             useUnifiedTopology: true,

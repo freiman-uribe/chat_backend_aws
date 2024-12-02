@@ -20,7 +20,13 @@ require("dotenv").config();
 
 connectDB();
 
-app.use(cors());
+const corsOptions = {
+  origin: "http://example.com", // Reemplaza con el dominio permitido
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes(io));

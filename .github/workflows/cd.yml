@@ -7,15 +7,24 @@ on:
       - completed
 
 jobs:
-
   build:
-
     runs-on: self-hosted
 
     steps:
-    - name: Pull Docker image
-      run: sudo docker pull freimanuribe15/cicd-pipeline:latest
-    - name: Delete Old docker container
-      run: sudo docker rm -f cicd-pipeline-container || true
-    - name: Run Docker Container
-      run: sudo docker run -d -p 8080:8080 --name cicd-pipeline-container freimanuribe15/cicd-pipeline
+      - name: Check Docker version
+        run: docker --version
+
+      - name: Pull Docker image
+        run: docker pull freimanuribe15/cicd-pipeline:latest
+
+      - name: List Docker containers
+        run: docker ps -a
+
+      - name: Delete Old docker container
+        run: docker rm -f cicd-pipeline-container || true
+
+      - name: Run Docker Container
+        run: docker run -d -p 8080:8080 --name cicd-pipeline-container freimanuribe15/cicd-pipeline
+
+      - name: List running Docker containers
+        run: docker ps

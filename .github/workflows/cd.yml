@@ -14,9 +14,6 @@ jobs:
       - name: Check Docker version
         run: docker --version
 
-      - name: Check Docker permissions
-        run: docker info
-
       - name: Pull Docker image
         run: docker pull freimanuribe15/cicd-pipeline:latest
 
@@ -27,7 +24,7 @@ jobs:
         run: docker rm -f cicd-pipeline-container || true
 
       - name: Run Docker Container
-        run: docker run -d -p 8080:8080 --name cicd-pipeline-container freimanuribe15/cicd-pipeline
+        run: docker run -d -p 3000:8080 --name cicd-pipeline-container freimanuribe15/cicd-pipeline
 
       - name: List running Docker containers
         run: docker ps

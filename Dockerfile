@@ -1,5 +1,5 @@
 # Usa una imagen base de Node.js
-FROM node:alpine3.19
+FROM node:23.3.0
 
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /usr/src/app
@@ -19,11 +19,3 @@ EXPOSE 3000
 # Comando para iniciar la aplicación
 CMD ["npm", "start"]
 
-
-# Step 2: Server With Nginx
-FROM nginx:1.27-alpine
-WORKDIR /usr/share/nginx/html
-RUN rm -rf *
-COPY --from=build /app/build .
-EXPOSE 80
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]

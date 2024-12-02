@@ -20,15 +20,17 @@ class AuthController {
   }
 
   static async login(req, res) {
-    const { username, password } = req.body;
-    console.log('🚀 ~ AuthController ~ login ~ username:', username)
-    try {
-      const token = await AuthService.login(username, password);
-      res.json({ token });
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
-    }
+    res.send("Login successful");
+
+    // const { username, password } = req.body;
+    // console.log('🚀 ~ AuthController ~ login ~ username:', username)
+    // try {
+    //   const token = await AuthService.login(username, password);
+    //   res.json({ token });
+    // } catch (err) {
+    //   console.error(err.message);
+    //   res.status(500).send("Server error");
+    // }
   }
 }
 

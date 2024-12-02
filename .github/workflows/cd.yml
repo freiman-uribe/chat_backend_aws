@@ -27,4 +27,4 @@ jobs:
         run: sudo docker run -d --name mongo-container -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example mongo:latest
 
       - name: Run Application Container
-        run: sudo docker run -d -p 3000:3000 --name cicd-pipeline-container --link mongo-container:mongo -e MONGO_URI="mongodb://root:example@mongo:27017/tu-base-de-datos?authSource=admin" freimanuribe15/cicd-pipeline
+        run: sudo docker run -d -p 3000:3000 --name cicd-pipeline-container --link mongo-container:mongo -e MONGO_URI="mongodb://root:example@mongo:27017/classRoom?authSource=admin" freimanuribe15/cicd-pipeline

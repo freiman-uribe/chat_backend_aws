@@ -23,8 +23,8 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
-app.use("/", (req, res) => res.status(404).send("Not founddddd"));
 app.use("/api/chat", chatRoutes(io));
+app.use("/", (req, res) => res.status(404).send("Not founddddd"));
 
 io.on("connection", (socket) => {
     console.log("New WebSocket connection");

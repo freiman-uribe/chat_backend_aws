@@ -17,6 +17,7 @@ const io = socketio(server, {
 });
 
 require("dotenv").config();
+
 connectDB();
 
 app.use(cors());

@@ -5,8 +5,8 @@ const connect = async () => {
     console.log("process.env.URL_CONNECT>>>", process.env.URL_CONNECT);
     
     try {
-        await mongoose.connect(process.env.URL_CONNECT, {
-            useUnifiedTopology: true,
+        await mongoose.connect("mongodb://localhost:27017/classRoom", {
+          useUnifiedTopology: true,
         });
         console.log('Conexion exitosa a la BD');
     } catch (error) {

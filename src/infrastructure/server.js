@@ -21,7 +21,7 @@ require("dotenv").config();
 connectDB();
 
 const corsOptions = {
-  origin: "http://example.com", // Reemplaza con el dominio permitido
+  origin: "*", // Reemplaza con el dominio permitido
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
 };
